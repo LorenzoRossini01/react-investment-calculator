@@ -64,7 +64,7 @@ body {
 }
 
 #result {
-  max-width: 50rem;
+  max-width: 60rem;
   margin: 2rem auto;
   padding: 1rem;
   table-layout: fixed;
@@ -83,6 +83,15 @@ body {
   color: #c2e9e0;
 }
 
+#result td,
+#result th {
+  padding-inline: 1rem;
+}
+
 .center {
+  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }

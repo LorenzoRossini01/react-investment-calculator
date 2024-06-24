@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
+import Results from "./components/Results";
 
 function App() {
   const [userInput, setUserInput] = useState({
@@ -14,13 +15,17 @@ function App() {
   function handleChange(inputIdentifier, newValue) {
     setUserInput({
       ...userInput,
-      [inputIdentifier]: newValue,
+      [inputIdentifier]: +newValue,
     });
   }
+
   return (
     <>
       <Header>React Investment Calculator</Header>
       <UserInput userInput={userInput} onChange={handleChange} />
+      <div className="center">
+        <Results data={userInput} />
+      </div>
     </>
   );
 }
