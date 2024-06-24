@@ -12,20 +12,26 @@ function App() {
     duration: 10,
   });
 
+  const inputIsValid = userInput.duration >= 1;
   function handleChange(inputIdentifier, newValue) {
     setUserInput({
       ...userInput,
       [inputIdentifier]: +newValue,
     });
+
+    if (userInput.duration < 0) {
+      setCanBeShown(false);
+    }
   }
 
   return (
     <>
       <Header>React Investment Calculator</Header>
       <UserInput userInput={userInput} onChange={handleChange} />
-      <div className="center">
-        <Results data={userInput} />
-      </div>
+      {!inputIsValid && (
+        <p className="center">Please enter a valid duration (> 0)</p>
+      )}
+      {inputIsValid && <Results data={userInput} />}
     </>
   );
 }
